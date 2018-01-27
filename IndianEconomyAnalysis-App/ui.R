@@ -36,7 +36,7 @@ indicators<-unique( indiaEcoNew2[,1] )
 
 dashboardPage(
   
-  skin="black",
+  skin="purple",
   
   
   #dashboard header
@@ -58,6 +58,11 @@ dashboardPage(
     ),
     
     tabItem(tabName = "dashboard",
+            
+            h2("Time Series Analysis of Indian Economy",align="center",style="margin-top:-5px;"),
+
+            br(),
+            
             
             fluidRow(
               
