@@ -28,6 +28,8 @@ indiaEcoNew2<-indiaEcoNew1 %>% group_by(Indicator_Name,year) %>%
 indiaEcoNew2<-na.omit(indiaEcoNew2)
 
 #writing to a new CSV file
-write.csv(indiaEcoNew2,)
+write.csv(indiaEcoNew2,file = "ProcssedData.csv")
+
+
 
 
