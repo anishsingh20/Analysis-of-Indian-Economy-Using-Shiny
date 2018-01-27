@@ -31,7 +31,7 @@ indiaEcoNew2<-na.omit(indiaEcoNew2)
 
 #creating a dashboard
 
-indicators<-unique( indiaEcoNew2[1:100,1] )
+indicators<-unique( indiaEcoNew2[,1] )
 
 
 dashboardPage(
@@ -44,7 +44,9 @@ dashboardPage(
   
   #dashboard sidebar
   dashboardSidebar(
-    menuItem("Menu", tabName = "dashboard", icon = icon("globe"))
+    sidebarMenu(
+    menuItem("Menu", tabName = "dashboard")
+    )
   ) ,
   
   #dashboard body
@@ -63,7 +65,7 @@ dashboardPage(
                      
                      box(
                        
-                       selectInput("indicator",label="Select Economic indicator",
+                       selectInput("indicator",label="Select MacroEconomic indicator",
                          choices=indicators[,1]), 
                      width=12
                      )  #end box1
@@ -73,9 +75,32 @@ dashboardPage(
               column(12,
                      
                      #box for plotting the time series plot
-                     box(highchartOutput("hchart"),width="12")
+                     box(highchartOutput("chart"),width="12")
                      
-             )#end column 2
+             ),#end column 2
+             
+             br(),
+             
+             hr(),
+             
+             h2("About the Economic Indicator",align="center") ,
+             
+             br(),
+             
+             
+             column(12,
+                    box(
+                    textOutput("about")  ,
+                    br(),
+                    
+                    h4("Source Organization"),
+                    textOutput("source"),
+                    
+                    width=12
+                    )#end box3
+                    
+                  )# end col3
+             
             )#end row
             
             
