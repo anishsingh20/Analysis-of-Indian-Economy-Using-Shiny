@@ -65,7 +65,7 @@ dashboardPage(
                      
                      box(
                        
-                       selectInput("indicator",label="Select MacroEconomic indicator",
+                       selectInput("indicator",label="Select Economic Indicator",
                          choices=indicators[,1]), 
                      width=12
                      )  #end box1
