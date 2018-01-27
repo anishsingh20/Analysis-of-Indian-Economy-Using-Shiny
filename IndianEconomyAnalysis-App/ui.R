@@ -14,22 +14,22 @@ require(highcharter)
 
 dashboardPage(
   
+  skin="blue",
+  
+  
   #dashboard header
-  dashboardHeader() ,
+  dashboardHeader(title="Analysis of India's Economy"),
   
   #dashboard sidebar
-  dashboardSidebar() ,
+  dashboardSidebar(
+    menuItem("Menu", tabName = "Menu", icon = icon("globe"))
+  ) ,
   
   #dashboard body
-  dashboardBody(),
-  
-  
-  
-  
-  
-  
-  
-  
+  dashboardBody(
+    
+    tabItem(tabName = "Menu", p("hello I am Anish"))
+  )
   
   
 )#end dashboard page

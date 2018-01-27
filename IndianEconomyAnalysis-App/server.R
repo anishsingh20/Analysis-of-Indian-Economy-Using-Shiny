@@ -7,7 +7,7 @@ require(readr)
 
 #reading the dataset
 
-indiaEco<-read_csv("IndiaEcoData.csv",col_names=TRUE )
+indiaEco<-read_csv("../IndiaEcoData.csv",col_names=TRUE )
 attach(indiaEco)
 
 #using tidyr to do some data transformations and tidying
@@ -31,5 +31,8 @@ indiaEcoNew2<-na.omit(indiaEcoNew2)
 write.csv(indiaEcoNew2,file = "ProcssedData.csv")
 
 
-
+server<-function(input,output) 
+{
+  
+}
 
