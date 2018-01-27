@@ -45,7 +45,7 @@ dashboardPage(
   #dashboard sidebar
   dashboardSidebar(
     sidebarMenu(
-    menuItem("Menu", tabName = "dashboard")
+    menuItem("Menu", tabName = "dashboard",icon=icon("dashboard"))
     )
   ) ,
   
