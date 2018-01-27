@@ -1,9 +1,9 @@
-require(shiny)
 require(shinydashboard)
 
 require(dplyr)
 require(tidyr)
 require(highcharter)
+require(readr)
 
 #UI of the application
 
@@ -36,7 +36,7 @@ indicators<-unique( indiaEcoNew2[1:100,1] )
 
 dashboardPage(
   
-  skin="blue",
+  skin="black",
   
   
   #dashboard header
@@ -44,21 +44,27 @@ dashboardPage(
   
   #dashboard sidebar
   dashboardSidebar(
-    menuItem("Menu", tabName = "Menu", icon = icon("globe"))
+    menuItem("Menu", tabName = "dashboard", icon = icon("globe"))
   ) ,
   
   #dashboard body
   dashboardBody(
     
-    tabItem(tabName = "Menu",
+    #adding custom-css
+    tags$head(
+      tags$link(rel = "stylesheet", type = "text/css", href = "custom.css")
+    ),
+    
+    tabItem(tabName = "dashboard",
             
             fluidRow(
               
               column(12, 
                      
                      box(
+                       
                        selectInput("indicator",label="Select Economic indicator",
-                         choices=indicators,size=10,selectize = F), 
+                         choices=indicators[,1]), 
                      width=12
                      )  #end box1
                      
@@ -71,6 +77,8 @@ dashboardPage(
                      
              )#end column 2
             )#end row
+            
+            
            )# end tab
                        
                         
