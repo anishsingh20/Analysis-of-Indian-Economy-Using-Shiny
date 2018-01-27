@@ -14,6 +14,17 @@ attach(indiaEco)
 
 #converting data from wide to long format
 #gathering years var into key-value pairs
-indiaEcoNew<-indiaEco %>% gather(key="year",value="EcoValues",4:61)
+indiaEcoNew1<-indiaEco %>% gather(4:61,key="year",value="EcoValues")
 
 #years now in a single column
+
+#SUMMARISING DATA
+#now grouping data by year and Economic Indicator and finding median values for each
+indiaEcoNew2<-indiaEcoNew1 %>% group_by(Indicator_Name,year) %>% 
+   summarise(median_val = median(EcoValues))
+
+#removing NA values
+indiaEcoNew2<-na.omit(indiaEcoNew2)
+
+
+
