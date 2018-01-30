@@ -37,10 +37,11 @@ server<-function(input,output)
       
     #creating a data frame of the selected user input indicator
     df<-indiaEcoNew2 %>% filter(Indicator_Name==input$indicator)  
+    #querying the selected input from the database
      
     
     #making a time series chart
-    hchart(df, "line",color="#6800b3",hcaes(x=year,y=median_val)) %>% 
+    hchart(df, "line",color="#6800b3",hcaes(x=year,y=median_val),name="Median Value:") %>% 
       hc_exporting(enabled = TRUE) %>% 
       hc_tooltip(crosshairs = TRUE, backgroundColor = "#FCFFC5",
                  shared = TRUE, borderWidth = 2) %>%
