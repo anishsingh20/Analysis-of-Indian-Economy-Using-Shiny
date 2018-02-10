@@ -30,6 +30,15 @@ indiaEcoNew2<-indiaEcoNew1 %>% group_by(Indicator_Name,year) %>%
 #removing NA values
 indiaEcoNew2<-na.omit(indiaEcoNew2)
 
+#filtering only major macro economic indicators
+macroEcodfnew<-indiaEcoNew2 %>% filter(str_detect(Indicator_Name, 'Inflation|gross domestic| savings | investment | income |employment |supply|
+                                    demand| payments | inport && exports ')) 
+
+
+
+
+
+
 
 server<-function(input,output) 
 {
@@ -41,7 +50,7 @@ server<-function(input,output)
      
     
     #making a time series chart
-    hchart(df, "line",color="#6800b3",hcaes(x=year,y=median_val),name="Median Value:") %>% 
+    hchart(df, "line",color="black",hcaes(x=year,y=median_val),name="Median Value:") %>% 
       hc_exporting(enabled = TRUE) %>% 
       hc_tooltip(crosshairs = TRUE, backgroundColor = "#FCFFC5",
                  shared = TRUE, borderWidth = 2) %>%
@@ -74,6 +83,41 @@ server<-function(input,output)
     
   })
     
+  
+  #chart for macroe economic aggregates tab
+  output$macroChart<-renderHighchart({
+    
+    #filtering data based on the selected user input and plotting the filtered data
+    Macrodf<-macroEcodfnew %>% filter(Indicator_Name==input$macroindicator)
+    
+    #making a time series chart
+    hchart(Macrodf, "line",color="black",hcaes(x=year,y=median_val),name="Median Value:") %>% 
+      hc_exporting(enabled = TRUE) %>% 
+      hc_tooltip(crosshairs = TRUE, backgroundColor = "#FCFFC5",
+                 shared = TRUE, borderWidth = 2) %>%
+      hc_title(text="Time series plot",align="center") %>%
+      hc_subtitle(text="Data Source: World Bank",align="center") %>%
+      hc_add_theme(hc_theme_elementary()) 
+    })
+  
+  
+  output$aboutMacro<-renderText({
+    
+    textMacro<-filter(Metadata,INDICATOR_NAME==input$macroindicator)
+    #printing it to the UI
+    print(textMacro$SOURCE_NOTE)
+    
+  })
+  
+  
+  output$MacroSource<-renderText({
+    
+    Macrosource<-filter(Metadata,INDICATOR_NAME==input$macroindicator)
+    
+    #printing it to the UI
+    print(Macrosource$SOURCE_ORGANIZATION)
+    
+  })
     
     
     

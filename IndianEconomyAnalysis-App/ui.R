@@ -40,6 +40,8 @@ indicators<-unique( indiaEcoNew2[,1] )
 macroEcodf<-indiaEcoNew2 %>% filter(str_detect(Indicator_Name, 'Inflation|gross domestic| savings | investment | income |employment |supply|
                                     demand| payments | inport && exports ')) 
 
+
+
 #unqiue indicators name data frame for select input
 macroEcodfUnique<-unique(macroEcodf[,1])
 
@@ -135,11 +137,50 @@ dashboardPage(
                 gross domestic product and changes in unemployment,supply and demands, National Savings and Investements etc."),
             br(),
             
-            box(
-            selectInput("macro",label="Select macro-economic indicator",
-                        choices=macroEcodfUnique) , width=12
+            fluidRow(
+              
+              column(12, 
+                     
+                     box(
+                       selectInput("macroindicator",label="Select macro-economic indicator",
+                                   choices=macroEcodfUnique[,1]) , width=12
+                       
+                     ) #end select box
+                     
+              ), #end  col1
+              
+              column(12,
+                     
+                     #box for plotting the time series plot
+                     box(highchartOutput("macroChart"),width="12")
+                     
+              ),#end column 2
+              
+              br(),
+              
+              hr(),
+              
+              h2("About the Macro Economic Indicator",align="center") ,
+              
+              br(),
+              
+              
+              column(12,
+                     box(
+                       textOutput("aboutMacro")  ,
+                       br(),
+                       
+                       h4("Source Organization"),
+                       textOutput("MacroSource"),
+                       
+                       width=12
+                     )#end box3
+                     
+              )# end col3
+              
+            )#end row
             
-            ) #end select box
+            
             
             
             
