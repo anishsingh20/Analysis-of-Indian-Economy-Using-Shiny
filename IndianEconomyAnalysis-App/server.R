@@ -6,10 +6,10 @@ require(readr)
 
 #reading the dataset
 
-indiaEco<-read_csv("../IndiaEcoData.csv",col_names=TRUE )
+indiaEco<-read_csv("IndiaEcoData.csv",col_names=TRUE )
 
 #metadata file
-Metadata<-read_csv("../MetaData/Metadata_Indicator_API_IND_DS2_en_csv_v2.csv")
+Metadata<-read_csv("Metadata_Indicator_API_IND_DS2_en_csv_v2.csv")
 
 attach(indiaEco)
 

@@ -7,7 +7,7 @@ require(readr)
 
 #UI of the application
 
-indiaEco<-read_csv("../IndiaEcoData.csv",col_names=TRUE )
+indiaEco<-read_csv("IndiaEcoData.csv",col_names=TRUE )
 attach(indiaEco)
 
 #using tidyr to do some data transformations and tidying
@@ -45,7 +45,8 @@ dashboardPage(
   #dashboard sidebar
   dashboardSidebar(
     sidebarMenu(
-    menuItem("Menu", tabName = "dashboard",icon=icon("dashboard"))
+    menuItem("Menu", tabName = "dashboard",icon=icon("dashboard")) ,
+    menuItem("Macroeconomic Aggregates", tabName = "macro",icon=icon("globe"))
     )
   ) ,
   
@@ -109,7 +110,18 @@ dashboardPage(
             )#end row
             
             
-           )# end tab
+           ) ,# end tab
+    
+    tabItem(tabName="macro",
+            h2("Major macroeconomic aggragates of India",align="center"),
+            br(),
+            p("Macroeconomics is a branch of the economics that mainly studies how the aggregate economy behaves. 
+                In macroeconomics, a variety of economy-wide phenomena is thoroughly examined such as, inflation, price levels, rate of growth, national income, 
+                gross domestic product and changes in unemployment,supply and demands, Savings, Investements etc.")
+            
+            
+            
+            )#end tabItem 2
                        
                         
     ) #end dashboard body
