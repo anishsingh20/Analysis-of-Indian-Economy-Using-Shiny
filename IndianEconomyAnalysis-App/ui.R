@@ -119,7 +119,30 @@ dashboardPage(
                     width=12
                     )#end box3
                     
-                  )# end col3
+                  ),# end col3 ,
+             
+             
+              tags$div(id="anish",    
+                column(12,
+                       h4("Made with love from-->", strong("Anish Singh Walia")),
+                       a("Github repository for this app",target="_blank",href="https://github.com/anishsingh20/Analysis-of-Indian-Economy") ,
+                       br(),
+                       
+                       h4("Reach out and follow me on->") ,
+                       
+                       tags$ul(type="none",
+                         tags$li(a("Github",target="_blank",href="https://github.com/anishsingh20/")),
+                         
+                         tags$li(a("Medium",target="_blank",href ="https://medium.com/@anishsingh20")),
+                         tags$li(a("Linked In",target="_blank",href = "https://twitter.com/anish_walia")),
+                         tags$li(a("Twitter",target="_blank",href="https://www.linkedin.com/in/anish-singh-walia-924529103/"))
+                         
+                         
+                       )#end ul
+                       
+                )#end column
+                
+              )#end tags$div
              
             )#end row
             
@@ -176,7 +199,29 @@ dashboardPage(
                        width=12
                      )#end box3
                      
-              )# end col3
+              ), # end col3
+              
+              tags$div(id="anish",    
+                       column(12,
+                              h4("Made with love from-->", strong("Anish Singh Walia")),
+                              a("Github repository for this app",target="_blank",href="https://github.com/anishsingh20/Analysis-of-Indian-Economy") ,
+                              br(),
+                              
+                              h4("Reach out and follow me on->") ,
+                              
+                              tags$ul(type="none",
+                                      tags$li(a("Github",target="_blank",href="https://github.com/anishsingh20/")),
+                                      
+                                      tags$li(a("Medium",target="_blank",href ="https://medium.com/@anishsingh20")),
+                                      tags$li(a("Linked In",target="_blank",href = "https://twitter.com/anish_walia")),
+                                      tags$li(a("Twitter",target="_blank",href="https://www.linkedin.com/in/anish-singh-walia-924529103/"))
+                                      
+                                      
+                              )#end ul
+                              
+                       )#end column
+                       
+              )#end tags$div
               
             )#end row
             
