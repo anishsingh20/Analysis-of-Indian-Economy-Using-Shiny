@@ -31,7 +31,17 @@ indiaEcoNew2<-na.omit(indiaEcoNew2)
 
 #creating a dashboard
 
+#choosing only unique values
 indicators<-unique( indiaEcoNew2[,1] )
+
+
+#macro-economic indicators data frame
+
+macroEcodf<-indiaEcoNew2 %>% filter(str_detect(Indicator_Name, 'Inflation|gross domestic| savings | investment | income |employment |supply|
+                                    demand| payments | inport && exports ')) 
+
+#unqiue indicators name data frame for select input
+macroEcodfUnique<-unique(macroEcodf[,1])
 
 
 dashboardPage(
@@ -45,8 +55,8 @@ dashboardPage(
   #dashboard sidebar
   dashboardSidebar(
     sidebarMenu(
-    menuItem("Menu", tabName = "dashboard",icon=icon("dashboard")) ,
-    menuItem("Macroeconomic Aggregates", tabName = "macro",icon=icon("globe"))
+    menuItem("Main Menu", tabName = "dashboard",icon=icon("dashboard")) ,
+    menuItem("Macroeconomic Aggregates", tabName = "macro")
     )
   ) ,
   
@@ -122,13 +132,21 @@ dashboardPage(
             br(),
             p("Macroeconomics is a branch of the economics that mainly studies how the aggregate economy behaves. 
                 In macroeconomics, a variety of economy-wide phenomena is thoroughly examined such as, inflation, price levels, rate of growth, national income, 
-                gross domestic product and changes in unemployment,supply and demands, National Savings and Investements etc.")
+                gross domestic product and changes in unemployment,supply and demands, National Savings and Investements etc."),
+            br(),
+            
+            box(
+            selectInput("macro",label="Select macro-economic indicator",
+                        choices=macroEcodfUnique) , width=12
+            
+            ) #end select box
             
             
             
-            )#end tabItem 2
+            
+          )#end tabItem 2
                        
-          ) #end tab-items
+        ) #end tab-items
   
   
     ) #end dashboard body
