@@ -58,6 +58,8 @@ dashboardPage(
       tags$link(rel = "stylesheet", type = "text/css", href = "custom.css")
     ),
     
+  tabItems(  
+    
     tabItem(tabName = "dashboard",
             
             h2("Time Series Analysis of Indian Economy",align="center",style="margin-top:-5px;"),
@@ -112,18 +114,23 @@ dashboardPage(
             
            ) ,# end tab
     
-    tabItem(tabName="macro",
+    
+    #tab-2 Major macroeconomic aggregates
+    tabItem(tabName = "macro",
+            
             h2("Major macroeconomic aggragates of India",align="center"),
             br(),
             p("Macroeconomics is a branch of the economics that mainly studies how the aggregate economy behaves. 
                 In macroeconomics, a variety of economy-wide phenomena is thoroughly examined such as, inflation, price levels, rate of growth, national income, 
-                gross domestic product and changes in unemployment,supply and demands, Savings, Investements etc.")
+                gross domestic product and changes in unemployment,supply and demands, National Savings and Investements etc.")
             
             
             
             )#end tabItem 2
                        
-                        
+          ) #end tab-items
+  
+  
     ) #end dashboard body
   
   
