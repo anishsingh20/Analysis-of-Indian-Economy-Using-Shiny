@@ -5,4 +5,4 @@ This project is completely out of my own personal curiosity,intellect and intere
 Economic indicators such as various kinds of GDP values, National Income, Level of employment, Per capita Income, Balance of purchases etc are present in dataset an will be used.
 
 
-### Initial Release of the application-https://anishsingh.shinyapps.io/IndianEconomyAnalysis/
+### Initial Release of the application-https://anishwalia20.shinyapps.io/IndianEconomyAnalysis-App/
