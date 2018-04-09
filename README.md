@@ -1,4 +1,7 @@
 # Analysis-of-Indian-Economy
+
+The goal was to have a single application using which people interested in economics and Indian economy(like me) and its situation over time can see and study the changes in economical condition of the country over time where lots of macro economic indiactors would be plotted and explained.
+
 This economics project mainly aims at studying and analyzing the Indian economic conditions over time, using various economic indicators from the data downloaded from World Bank.
 This project is completely out of my own personal curiosity,intellect and interest in economics.
 
